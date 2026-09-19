@@ -6,13 +6,10 @@ import org.junit.jupiter.api.Test;
 
 public class PizzaTest {
 
-<<<<<<< HEAD
-    /*
-=======
->>>>>>> 72fa0ee66dee0c78b6760f85ef08512e500973e4
+
     Pizza pizza;
     int ingredientesPadrao;
-
+    /*
     @BeforeEach
     public void setUp(){
         //Arrange
@@ -20,7 +17,6 @@ public class PizzaTest {
         pizza = new Pizza(ingredientesPadrao);
     }
 
-<<<<<<< HEAD
     Testes: começa com 4. Tenta adicionar negativo. Tenta adicionar 8 excesso.
     */
 
@@ -30,22 +26,6 @@ public class PizzaTest {
         Pizza pizza = new Pizza();
         //Act
         int quantos = pizza.adicionarIngredientes(4);
-=======
-    @Test
-    public void adicionaIngredientesCorretamente(){
-        //Act
-        int quantos = pizza.adicionarIngredientes(4);
-
-        //Assert
-        assertEquals(8, quantos);
-    }
-
-    @Test
-    public void naoAdicionaIngredientesNegativos(){
-        //Act
-        int quantos = pizza.adicionarIngredientes(-5);
-
->>>>>>> 72fa0ee66dee0c78b6760f85ef08512e500973e4
         //Assert
         assertEquals(4, quantos);
     }
