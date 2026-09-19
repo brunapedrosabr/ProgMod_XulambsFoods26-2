@@ -1,6 +1,8 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.Test;
 
 public class PedidoTest {
@@ -10,6 +12,20 @@ public class PedidoTest {
     @BeforeEach
     public void setUp(){
         pedido = new Pedido();
+    }
+
+    @Test
+    public void naoAdicionaPizzaNula(){
+        //Act
+        int quantidade = pedido.adicionarPizza(null);
+        //Assert
+        assertEquals(0, quantidade);
+    }
+
+    @Test
+    public void pedidosRecebemIdentificadoresDiferentes(){
+        //Arrange
+        Pedido outroPedido = new Pedido();
     }
     */
 
@@ -63,6 +79,9 @@ public class PedidoTest {
 
         //Assert
         assertTrue( 
+            relatorio.contains("Pedido nº") &&
+            relatorio.contains(LocalDate.now().toString()) &&
+            relatorio.contains("fechado") &&
             relatorio.contains("2 ingredientes") &&
             relatorio.contains("5 ingredientes") &&
             relatorio.contains("39,00") &&
