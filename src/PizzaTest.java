@@ -6,7 +6,10 @@ import org.junit.jupiter.api.Test;
 
 public class PizzaTest {
 
+<<<<<<< HEAD
     /*
+=======
+>>>>>>> 72fa0ee66dee0c78b6760f85ef08512e500973e4
     Pizza pizza;
     int ingredientesPadrao;
 
@@ -17,6 +20,7 @@ public class PizzaTest {
         pizza = new Pizza(ingredientesPadrao);
     }
 
+<<<<<<< HEAD
     Testes: começa com 4. Tenta adicionar negativo. Tenta adicionar 8 excesso.
     */
 
@@ -26,6 +30,22 @@ public class PizzaTest {
         Pizza pizza = new Pizza();
         //Act
         int quantos = pizza.adicionarIngredientes(4);
+=======
+    @Test
+    public void adicionaIngredientesCorretamente(){
+        //Act
+        int quantos = pizza.adicionarIngredientes(4);
+
+        //Assert
+        assertEquals(8, quantos);
+    }
+
+    @Test
+    public void naoAdicionaIngredientesNegativos(){
+        //Act
+        int quantos = pizza.adicionarIngredientes(-5);
+
+>>>>>>> 72fa0ee66dee0c78b6760f85ef08512e500973e4
         //Assert
         assertEquals(4, quantos);
     }
@@ -62,4 +82,45 @@ public class PizzaTest {
         assertTrue(cupom.contains("4 ingredientes") && cupom.contains("29,00") && cupom.contains("20,00") && cupom.contains("49,00"));
     }
     
+    @Test
+    public void naoAdicionaIngredientesEmExcesso(){
+        //Act
+        int quantos = pizza.adicionarIngredientes(7);
+
+        //Assert
+        assertEquals(4, quantos);
+    }
+
+    @Test
+    public void calculaValorDaPizzaComAdicionais(){
+        //Act
+        double valor = pizza.valorFinal();
+
+        //Assert
+        assertEquals(49, valor, 0.01);
+    }
+
+    @Test
+    public void calculaValorDaPizzaSemAdicionais(){
+        //Arrange
+        Pizza pizzaVazia = new Pizza();
+        //Act
+        double valor = pizzaVazia.valorFinal();
+        //Assert
+        assertEquals(29, valor, 0.01);
+    }
+
+    @Test
+    public void cupomContemDetalhamento(){
+        //Act
+        String cupom = pizza.gerarCupom();
+
+        //Assert
+        assertTrue( 
+            cupom.contains("4 ingredientes") &&
+            cupom.contains("29,00") &&
+            cupom.contains("20,00") &&
+            cupom.contains("49,00")
+        );
+    }
 }
